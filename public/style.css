@@ -1,0 +1,57 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    margin: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+#map-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Ajustar según tu preferencia */
+    height: auto;
+}
+
+#map {
+    width: 100%;
+    height: auto;
+}
+
+#her-face, #my-face {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Media queries para ajustar en dispositivos móviles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    #her-face, #my-face {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    #her-face, #my-face {
+        width: 30px;
+        height: 30px;
+    }
+}

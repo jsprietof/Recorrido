@@ -32,3 +32,26 @@ h1 {
     height: 50px;
     border-radius: 50%;
 }
+
+/* Media queries para ajustar en dispositivos móviles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    #her-face, #my-face {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    #her-face, #my-face {
+        width: 30px;
+        height: 30px;
+    }
+}
