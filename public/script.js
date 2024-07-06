@@ -37,5 +37,7 @@ function adjustFacePositions() {
 }
 
 // Ajustar las posiciones al cargar la página y al redimensionar la ventana
-window.addEventListener('load', adjustFacePositions);
+window.addEventListener('load', () => {
+    adjustFacePositions();
+});
 window.addEventListener('resize', adjustFacePositions);
