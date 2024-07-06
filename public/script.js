@@ -8,20 +8,34 @@ title.innerText = `Recorrido (día ${daysPassed} de ${totalDays})`;
 
 const herFace = document.getElementById('her-face');
 const myFace = document.getElementById('my-face');
+const mapContainer = document.getElementById('map-container');
 
-// Coordenadas de las posiciones iniciales y finales en el mapa
-const startX = 0.9 * window.innerWidth;
-const startY = 0.01 * window.innerHeight;
-const endX = 0 * window.innerWidth;
-const endY = 0.9 * window.innerHeight;
+// Ajustar el tamaño y la posición de las imágenes en función del tamaño del mapa
+function adjustFacePositions() {
+    const mapRect = mapContainer.getBoundingClientRect();
+    const startX = mapRect.width * 0.9;
+    const startY = mapRect.height * 0.01;
+    const endX = mapRect.width * 0;
+    const endY = mapRect.height * 0.9;
+    
+    const fractionOfJourney = daysPassed / totalDays;
+    const currentX = startX + (endX - startX) * fractionOfJourney;
+    const currentY = startY + (endY - startY) * fractionOfJourney;
 
-// Calcular la posición actual de la imagen de ella
-const fractionOfJourney = daysPassed / totalDays;
-const currentX = startX + (endX - startX) * fractionOfJourney;
-const currentY = startY - (startY - endY) * fractionOfJourney;  // Invertir Y para el recorrido
+    // Posicionar las imágenes
+    herFace.style.left = `${currentX}px`;
+    herFace.style.top = `${currentY}px`;
+    myFace.style.left = `${endX}px`;
+    myFace.style.top = `${endY}px`;
 
-// Posicionar las imágenes
-herFace.style.left = `${currentX}px`;
-herFace.style.top = `${currentY}px`;
-myFace.style.left = `${endX}px`;
-myFace.style.top = `${endY}px`;
+    // Ajustar el tamaño de las caras en función del tamaño del contenedor del mapa
+    const faceSize = mapRect.width * 0.05; // Ajustar el tamaño según el ancho del mapa
+    herFace.style.width = `${faceSize}px`;
+    herFace.style.height = `${faceSize}px`;
+    myFace.style.width = `${faceSize}px`;
+    myFace.style.height = `${faceSize}px`;
+}
+
+// Ajustar las posiciones al cargar la página y al redimensionar la ventana
+window.addEventListener('load', adjustFacePositions);
+window.addEventListener('resize', adjustFacePositions);
