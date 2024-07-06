@@ -13,11 +13,16 @@
         <img id="her-face" src="images/her-face.jpg" alt="Ella">
         <img id="my-face" src="images/my-face.jpg" alt="Yo">
     </div>
+    <button id="play-button">Reproducir música</button>
     <audio id="background-music" loop>
-        <source src="https://jsprietof.github.io/Recorrido/music/song.mp3
-        " type="audio/mpeg">
+        <source src="https://jsprietof.github.io/Recorrido/music/song.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
+    <script>
+        document.getElementById('play-button').addEventListener('click', function() {
+            document.getElementById('background-music').play();
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
