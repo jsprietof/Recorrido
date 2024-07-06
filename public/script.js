@@ -40,8 +40,10 @@ function adjustFacePositions() {
 window.addEventListener('load', adjustFacePositions);
 window.addEventListener('resize', adjustFacePositions);
 
-// Reproducir música de fondo
+// Reproducir la música de fondo
+const backgroundMusic = document.getElementById('background-music');
 window.addEventListener('load', () => {
-    const backgroundMusic = document.getElementById('background-music');
-    backgroundMusic.play();
+    backgroundMusic.play().catch(error => {
+        console.error('Error al intentar reproducir la música de fondo:', error);
+    });
 });
